@@ -1,16 +1,14 @@
 [TAIPY]
-read_entity_retry = "3:int"
 
 [DATA_NODE.initial_dataset]
 storage_type = "csv"
-scope = "GLOBAL:SCOPE"
 path = "data/dataset.csv"
 
 [DATA_NODE.day]
 default_data = "2021-07-26T00:00:00:datetime"
 
 [DATA_NODE.cleaned_dataset]
-scope = "GLOBAL:SCOPE"
+storage_type = "parquet"
 
 [DATA_NODE.predictions]
 
@@ -34,11 +32,11 @@ inputs = [ "predictions:SECTION", "cleaned_dataset:SECTION", "day:SECTION",]
 outputs = [ "evaluation:SECTION",]
 skippable = "False:bool"
 
-[PIPELINE.baseline]
-tasks = [ "clean_data:SECTION", "predict:SECTION", "evaluate:SECTION",]
-
 [SCENARIO.scenario]
-pipelines = [ "baseline:SECTION",]
+tasks = [ "clean_data:SECTION", "predict:SECTION", "evaluate:SECTION",]
+additional_data_nodes = []
 frequency = "MONTHLY:FREQUENCY"
 
 [SCENARIO.scenario.comparators]
+
+[SCENARIO.scenario.sequences]

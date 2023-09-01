@@ -7,7 +7,6 @@ from taipy.config import Config
 Config.load('config/config.toml')
 scenario_cfg = Config.scenarios['scenario']
 
-
 def create_and_run_scenario(date: dt.datetime):
     scenario = tp.create_scenario(config=scenario_cfg,
                                   name=f"scenario_{date.date()}",
@@ -23,7 +22,3 @@ if __name__ == "__main__":
     
     predictions = my_first_scenario.predictions.read()
     print("Predictions\n", predictions)  
-    
-    for i in range(5):
-        date = dt.datetime(2021, 1, 25) + 3*dt.timedelta(days=i)
-        create_and_run_scenario(date)
