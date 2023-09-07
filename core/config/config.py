@@ -8,8 +8,7 @@ from algos.algos import clean_data, predict, evaluate
 ## Input Data Nodes
 initial_dataset_cfg = Config.configure_data_node(id="initial_dataset",
                                                  storage_type="csv",
-                                                 path="data/dataset.csv",
-                                                 scope=Scope.GLOBAL)
+                                                 path="data/dataset.csv")
 
 # We assume the current day is the 26th of July 2021.
 # This day can be changed to simulate multiple executions of scenarios on different days

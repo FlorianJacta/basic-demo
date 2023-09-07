@@ -16,7 +16,8 @@ def update_comparison(state):
         names.append(scenario.name)
     
     state.df_metrics = pd.DataFrame({"Names": names, "MAE": maes})
-    
+
+
 # ------------------- Scenario Page -------------------
 jobs = []
 day = None
@@ -35,7 +36,6 @@ scenario_md = """
 <|{jobs}|job_selector|>
 <|{scenario}|scenario_dag|>
 """
-
 
 # ------------------- Data Node Page -------------------
 datanode_selector = """

@@ -2,7 +2,6 @@
 
 [DATA_NODE.initial_dataset]
 storage_type = "csv"
-scope = "GLOBAL:SCOPE"
 path = "data/dataset.csv"
 
 [DATA_NODE.day]

@@ -13,11 +13,11 @@ def predict(cleaned_dataset: pd.DataFrame, day: dt.datetime):
     print("     Predicting")
     train_dataset = cleaned_dataset[cleaned_dataset['Date'] < pd.Timestamp(day.date())]
     predictions = train_dataset['Value'][-30:].reset_index(drop=True)
-    return predictions
+    return pd.DataFrame({"Prediction":predictions})
 
 
 def evaluate(predictions, cleaned_dataset, day):
     print("     Evaluating")
     expected = cleaned_dataset.loc[cleaned_dataset['Date'] >= pd.Timestamp(day.date()), 'Value'][:30].reset_index(drop=True)
-    mae = ((predictions - expected) ** 2).mean()
+    mae = ((predictions['Prediction'] - expected) ** 2).mean()
     return int(mae)
