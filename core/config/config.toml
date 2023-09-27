@@ -2,6 +2,7 @@
 
 [DATA_NODE.initial_dataset]
 storage_type = "csv"
+scope = "GLOBAL:SCOPE"
 path = "data/dataset.csv"
 
 [DATA_NODE.day]
@@ -9,6 +10,7 @@ default_data = "2021-07-26T00:00:00:datetime"
 
 [DATA_NODE.cleaned_dataset]
 storage_type = "parquet"
+scope = "GLOBAL:SCOPE"
 
 [DATA_NODE.predictions]
 

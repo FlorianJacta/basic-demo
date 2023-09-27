@@ -2,10 +2,8 @@ import taipy as tp
 
 import datetime as dt
 
-from taipy.config import Config
-
-Config.load('config/config.toml')
-scenario_cfg = Config.scenarios['scenario']
+from config.config import *
+#from config_2_4.config import *
 
 def create_and_run_scenario(date: dt.datetime):
     scenario = tp.create_scenario(config=scenario_cfg,
@@ -18,7 +16,10 @@ def create_and_run_scenario(date: dt.datetime):
 if __name__ == "__main__":
     tp.Core().run()
     
+    
     my_first_scenario = create_and_run_scenario(dt.datetime(2021, 1, 25))
     
     predictions = my_first_scenario.predictions.read()
-    print("Predictions\n", predictions)  
+    print("Predictions\n", predictions)
+    
+    
