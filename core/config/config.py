@@ -1,5 +1,7 @@
 from taipy import Config, Scope, Frequency
 
+from taipy.core import Scenario
+
 import datetime as dt
 
 from algos.algos import clean_data, predict, evaluate
@@ -17,6 +19,7 @@ day_cfg = Config.configure_data_node(id="day", default_data=dt.datetime(2021, 7,
 
 ## Remaining Data Node
 cleaned_dataset_cfg = Config.configure_data_node(id="cleaned_dataset",
+                                                 storage_type="parquet",
                                                  scope=Scope.GLOBAL)
 predictions_cfg = Config.configure_data_node(id="predictions")
 
@@ -38,10 +41,8 @@ evaluate_task_cfg = Config.configure_task(id="evaluate",
                                             input=[predictions_cfg, cleaned_dataset_cfg, day_cfg],
                                             output=evaluation_cfg)
 
-# Create the the  pipeline configuration
-baseline_pipeline_cfg = Config.configure_pipeline(id="baseline",
-                                                  task_configs=[clean_data_task_cfg, predict_task_cfg, evaluate_task_cfg])
+# 
 # Configure our scenario config.
-scenario_cfg = Config.configure_scenario(id="scenario", pipeline_configs=[baseline_pipeline_cfg], frequency=Frequency.MONTHLY)
+scenario_cfg = Config.configure_scenario(id="scenario", task_configs=[clean_data_task_cfg, predict_task_cfg,evaluate_task_cfg], frequency=Frequency.MONTHLY)
 
 Config.export('config/config.toml')
