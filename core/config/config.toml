@@ -18,7 +18,7 @@ scope = "GLOBAL:SCOPE"
 
 [TASK.clean_data]
 function = "algos.algos.clean_data:function"
-inputs = [ "initial_dataset:SECTION",]
+inputs = [ "initial_dataset:SECTION" ]
 outputs = [ "cleaned_dataset:SECTION",]
 skippable = "True:bool"
 
@@ -26,13 +26,13 @@ skippable = "True:bool"
 function = "algos.algos.predict:function"
 inputs = [ "cleaned_dataset:SECTION", "day:SECTION",]
 outputs = [ "predictions:SECTION",]
-skippable = "False:bool"
+skippable = "True:bool"
 
 [TASK.evaluate]
 function = "algos.algos.evaluate:function"
 inputs = [ "predictions:SECTION", "cleaned_dataset:SECTION", "day:SECTION",]
 outputs = [ "evaluation:SECTION",]
-skippable = "False:bool"
+skippable = "True:bool"
 
 [SCENARIO.scenario]
 tasks = [ "clean_data:SECTION", "predict:SECTION", "evaluate:SECTION",]
@@ -42,3 +42,5 @@ frequency = "MONTHLY:FREQUENCY"
 [SCENARIO.scenario.comparators]
 
 [SCENARIO.scenario.sequences]
+
+

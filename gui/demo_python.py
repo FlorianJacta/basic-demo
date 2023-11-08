@@ -1,6 +1,5 @@
 from taipy.gui import Gui 
 import taipy.gui.builder as tgb
-
 from math import cos, exp
 
 value = 10
@@ -18,3 +17,4 @@ with tgb.Page() as page:
 
 
 Gui(page=page).run()
+
