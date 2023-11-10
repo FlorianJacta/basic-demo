@@ -26,4 +26,4 @@ From a data length of <|{len(df_AAPL)}|> to <|{n_out}|>
 """
 
 gui = Gui(page)
-gui.run(port=5026)
+gui.run(port=5026, title="Decimator")

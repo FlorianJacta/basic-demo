@@ -16,5 +16,5 @@ with tgb.Page() as page:
     tgb.chart(data="{compute_data(value)}") 
 
 
-Gui(page=page).run()
+Gui(page=page).run(title="Frontend Demo")
 
