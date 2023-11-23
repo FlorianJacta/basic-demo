@@ -1,10 +1,11 @@
+# 2.3.dev5
 import yfinance as yf
 from taipy.gui import Gui
 from taipy.gui.data.decimator import MinMaxDecimator, RDP, LTTB
 
 
 df_AAPL = yf.Ticker("AAPL").history(interval="1d", period = "100Y")
-df_AAPL["DATE"] = df_AAPL.index.astype(int).astype(float)
+df_AAPL["DATE"] = df_AAPL.index.astype('int64').astype(float)
 
 n_out = 500
 decimator_instance = MinMaxDecimator(n_out=n_out)
