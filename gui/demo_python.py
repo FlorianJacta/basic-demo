@@ -12,7 +12,6 @@ with tgb.Page() as page:
     tgb.text(value="Python")
     tgb.text(value="Taipy Demo", class_name="h1")
     tgb.text(value="Value: {value}")
-    tgb.text(value="{value}")
     tgb.slider(value="{value}")
     tgb.chart(data="{compute_data(value)}") 
 

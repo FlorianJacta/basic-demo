@@ -7,7 +7,6 @@ scenario = None
 df_metrics = None
 data_node = None
 
-
 pages = {'/':'<|navbar|> <|toggle|theme|> <br/>',
          'Scenario': Markdown('pages/scenario.md'),
          'Data-Node': Markdown('pages/data_node.md')}

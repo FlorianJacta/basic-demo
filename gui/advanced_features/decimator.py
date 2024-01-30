@@ -1,4 +1,3 @@
-# 2.3.dev5
 import yfinance as yf
 from taipy.gui import Gui
 from taipy.gui.data.decimator import MinMaxDecimator, RDP, LTTB
